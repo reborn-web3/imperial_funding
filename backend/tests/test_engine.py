@@ -1,5 +1,5 @@
 from sqlalchemy import inspect, text
-from app.database.database import engine, init_db
+from backend.app.database.database_engine import engine, init_db
 from app.models.tickers import Tickers
 
 

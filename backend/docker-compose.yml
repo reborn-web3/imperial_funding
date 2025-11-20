@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:17
+    container_name: tickers # Specifies the PostgreSQL image and version
+    restart: always # Ensures the container restarts if it stops
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER} # Sets the database username
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Sets the database password
+      POSTGRES_DB: ${POSTGRES_DB} # Sets the database name
+    ports:
+      - '5432:5432' # Maps host port 5432 to container port 5432
+    volumes:
+      - db_data:/var/lib/postgresql/data # Mounts a named volume for persistent data storage
+
+volumes:
+  db_data: # Defines the named volume
